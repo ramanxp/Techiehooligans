@@ -1,0 +1,29 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components: []
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: link_3
+    properties: {text: My Cart, icon: 'fa:cart-arrow-down'}
+    type: Link
+    layout_properties: {}
+  - name: link_2
+    properties: {text: Sign In, icon: 'fa:sign-in'}
+    type: Link
+    layout_properties: {}
+- name: link_1
+  properties: {text: TECHIEHOOLIGANS}
+  type: Link
+  layout_properties: {slot: title}
+  components: []
+  event_bindings: {click: link_1_click}

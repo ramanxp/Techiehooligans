@@ -23,12 +23,29 @@ class Base(BaseTemplate):
       self.sign_in.text = email
     else:
       self.sign_in.text = "Sign In"
+    self.toggle_my_cart_link()
     
-  def link_1_click(self, **event_args):
+  def title_click(self, **event_args):
+    self.go_to_home()
+
+  def go_to_home(self):
     self.content_panel.clear()
     self.content_panel.add_component(Home())
 
   def sign_in_click(self, **event_args):
-    anvil.users.login_with_form()
+    user = anvil.users.get_user()
+    if user:
+      logout = confirm("Would you like to logout ?")
+      if logout:
+        anvil.users.logout()
+        self.go_to_home()
+    else:
+      anvil.users.login_with_form()
     self.change_sign_in_text()
+
+  def toggle_my_cart_link(self):
+    self.my_cart.visible = anvil.users.get_user() != None
+    
+      
+
     

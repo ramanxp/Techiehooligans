@@ -1,5 +1,35 @@
 allow_embedding: false
 package_name: Material_Design_1
+db_schema:
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {order: 1, width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 4, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 5, width: 200}
+      type: bool
+    - name: mfa
+      admin_ui: {order: 6, width: 200}
+      type: simpleObject
+    - name: signed_up
+      admin_ui: {order: 7, width: 200}
+      type: datetime
+    title: Users
 startup: {type: form, module: Base}
 name: Material Design 1
 startup_form: null
@@ -7,5 +37,16 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
   server_spec: null}
 services:
 - source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {mfa_timeout_days: 0, require_secure_passwords: true, use_token: false,
+    use_email: true, allow_signup: true, enable_automatically: true, confirm_email: true,
+    require_mfa: false, use_google: true, use_facebook: false}
+  server_config: {user_table: users}
+- source: /runtime/services/facebook.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/google.yml
   client_config: {}
   server_config: {}

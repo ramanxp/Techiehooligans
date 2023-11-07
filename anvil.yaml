@@ -29,6 +29,9 @@ db_schema:
     - name: signed_up
       admin_ui: {order: 7, width: 200}
       type: datetime
+    - name: Column9
+      admin_ui: {width: 200, order: 8}
+      type: simpleObject
     title: Users
 startup: {type: form, module: Base}
 name: Material Design 1

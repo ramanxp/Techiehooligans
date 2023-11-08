@@ -4,7 +4,8 @@ unique_ids:
     Home: '1699194572854170232141918.52975'
     Products: '1699196063291326040738428.1725'
   modules: {}
-  server_modules: {}
+  server_modules:
+    ProductDetails: '1699449691595999972230328.1108'
   assets:
     Techiehooligans-logos.jpeg: '1699195006701418729890843.61414'
     credentials.json: '1699197343714443915792171.0093'

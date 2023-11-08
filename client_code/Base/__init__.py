@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 import anvil.users
 import anvil.server
 from ..Home import Home
+from ..MyProducts import MyProducts
 
 
 class Base(BaseTemplate):
@@ -45,6 +46,10 @@ class Base(BaseTemplate):
 
   def toggle_my_cart_link(self):
     self.my_cart.visible = anvil.users.get_user() != None
+
+  def my_cart_click(self, **event_args):
+    self.init_components(**properties)
+    self.content_panel.add_component(MyProducts())
     
       
 

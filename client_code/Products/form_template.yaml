@@ -1,0 +1,12 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'EWKRWV,UYIJNV'}
+  components:
+  - name: Products_label
+    properties: {text: PRODUCTS, font_size: 30}
+    type: Label
+    layout_properties: {grid_position: 'GRJCMB,WVFIUI'}
+is_package: true

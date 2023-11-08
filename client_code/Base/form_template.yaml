@@ -17,6 +17,7 @@ components:
     properties: {text: My Cart, icon: 'fa:cart-arrow-down', visible: false}
     type: Link
     layout_properties: {}
+    event_bindings: {click: my_cart_click}
   - name: sign_in
     properties: {text: Sign In, icon: 'fa:user-circle'}
     type: Link

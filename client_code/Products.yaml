@@ -1,7 +1,0 @@
-container: {type: ColumnPanel}
-components:
-- name: headline_1
-  properties: {role: headline, text: PRODUCTS}
-  type: Label
-  layout_properties: {grid_position: 'NVUMIM,WQXEUP'}
-is_package: false

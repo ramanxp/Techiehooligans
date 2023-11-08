@@ -9,7 +9,7 @@ import anvil.server
 
 
 @anvil.server.callable
-def say_hello(name):
+def get_product_details():
    return app_tables.products.client_readable()
    
 

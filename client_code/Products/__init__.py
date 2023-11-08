@@ -17,7 +17,7 @@ class Products(ProductsTemplate):
     self.load_products()
 
   def load_products(self):
-    products = anvil.server.call('get_product_details').search()
+    products = anvil.server.call('get_all_products').search()
     for product in products:
       p = ProductItem(name=product["Name"], button_text="Buy for ₹" + str(product['Price']), description=product["Description"], image=product["Image"], button_callback = None)
       self.content_panel.add_component(p)

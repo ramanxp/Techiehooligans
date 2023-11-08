@@ -9,8 +9,14 @@ import anvil.server
 
 
 @anvil.server.callable
-def get_product_details():
+def get_all_products():
    return app_tables.products.client_readable()
+
+
+@anvil.server.callable
+def get_product_details(product_name):
+  return app_tables.products.get(id_name=product_name)
+  
    
 
 

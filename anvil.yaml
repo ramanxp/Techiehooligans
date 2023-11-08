@@ -49,6 +49,9 @@ db_schema:
     - name: Image
       admin_ui: {width: 200, order: 3}
       type: media
+    - name: id_name
+      admin_ui: {width: 200, order: 4}
+      type: string
     title: Products
 startup: {type: form, module: Base}
 name: Techiehooligans

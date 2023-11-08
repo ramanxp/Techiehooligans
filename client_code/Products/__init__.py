@@ -15,10 +15,11 @@ class Products(ProductsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.load_products()
-    self.content_panel.add_component(ProductItem(name="Name", buttonText="Buy for 100", description="description"))
 
   def load_products(self):
     products = anvil.server.call('get_product_details').search()
     for product in products:
-      print(product['Name'])
+      p = ProductItem(name=product["Name"], button_text="Buy for ₹" + str(product['Price']), description=product["Description"], image=product["Image"], button_callback = None)
+      self.content_panel.add_component(p)
+    
     

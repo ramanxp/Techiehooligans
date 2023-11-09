@@ -8,16 +8,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
-
 @anvil.server.callable
-def get_all_products():
-   return app_tables.products.client_readable()
-
-
-@anvil.server.callable
-def get_product_details(product_name):
-  return app_tables.products.get(Name=product_name)
-  
-   
-
-
+def charge_user(token, email, product_name):
+  stripe_customer = anvil.stripe.new_customer(email, token)
+  price = app_tables.products.get(Name=product_name)['Price'] * 100
+  result = stripe_customer.charge(amount=price, currency="INR")
+  print(result)

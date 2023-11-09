@@ -9,6 +9,7 @@ unique_ids:
   modules: {}
   server_modules:
     ProductDetails: '1699449691595999972230328.1108'
+    Purchase: '1699548098285150048320668.46286'
   assets:
     Techiehooligans-logos.jpeg: '1699195006701418729890843.61414'
     credentials.json: '1699197343714443915792171.0093'

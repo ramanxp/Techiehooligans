@@ -10,9 +10,11 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class Checkout(CheckoutTemplate):
-  def __init__(self, **properties):
+  def __init__(self, id_name, back_button_callback, **properties):
+    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.update_form(id_name)
 
     # Any code you write here will run before the form opens.
 
@@ -22,3 +24,10 @@ class Checkout(CheckoutTemplate):
     self.description_label.text = product['Description']
     self.price_label.text = f"₹{product['Price']}"
     self.image_content.source = product['Image']
+
+  def buy_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def back_button_click(self, **event_args):
+    self.back_button_callback()

@@ -9,6 +9,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..ProductItem import ProductItem
+from ..Checkout import Checkout
 
 class Products(ProductsTemplate):
   def __init__(self, **properties):
@@ -21,5 +22,16 @@ class Products(ProductsTemplate):
     for product in products:
       p = ProductItem(name=product["Name"], button_text="Buy for ₹" + str(product['Price']), description=product["Description"], image=product["Image"], button_callback = None)
       self.content_panel.add_component(p)
+
+  def back(self):
+    self.content_panel.clear()
+    self.load_products()
+
+  def render_checkout(self, course_name):
+    self.content_panel.clear()
+    self.content_panel.add_component(Checkout(course_name, self.back))
+    
+  
+    
     
     

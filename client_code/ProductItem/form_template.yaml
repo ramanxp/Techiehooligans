@@ -32,6 +32,7 @@ components:
 
           ', background: 'theme:Primary 500', foreground: 'theme:White'}
       type: Button
+      event_bindings: {click: cart_click}
 is_package: true
 custom_component: true
 properties:

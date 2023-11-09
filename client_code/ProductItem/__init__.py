@@ -18,6 +18,8 @@ class ProductItem(ProductItemTemplate):
     self.buy.text = button_text
     self.image_content.source = image
 
+  def button_callback()
+
     # Any code you write here will run before the form opens.
 
   def cart_click(self, **event_args):

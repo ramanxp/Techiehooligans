@@ -15,7 +15,7 @@ def get_all_products():
 
 @anvil.server.callable
 def get_product_details(product_name):
-  return app_tables.products.get(id_name=product_name)
+  return app_tables.products.get(Name=product_name)
   
    
 

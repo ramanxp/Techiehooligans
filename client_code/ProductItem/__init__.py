@@ -13,15 +13,12 @@ class ProductItem(ProductItemTemplate):
   def __init__(self, name, description, button_text, image, button_callback, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.name_label.text = name
+    self.name_label.content = name
     self.description_label.text = description
-    self.buy.text = button_text
+    self.cart.text = button_text
     self.image_content.source = image
-
-  def button_callback()
-
-    # Any code you write here will run before the form opens.
+    self.button_callback = button_callback
 
   def cart_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.button_callback()
+    self.button_callback(self.name_label.content)

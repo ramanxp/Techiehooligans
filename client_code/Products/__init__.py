@@ -20,7 +20,7 @@ class Products(ProductsTemplate):
   def load_products(self):
     products = anvil.server.call('get_all_products').search()
     for product in products:
-      p = ProductItem(name=product["Name"], button_text="Buy for ₹" + str(product['Price']), description=product["Description"], image=product["Image"], button_callback = self.render_checkout())
+      p = ProductItem(name=product["Name"], button_text="Buy for ₹" + str(product['Price']), description=product["Description"], image=product["Image"], button_callback = self.render_checkout)
       self.content_panel.add_component(p)
 
   def back(self):
@@ -29,7 +29,7 @@ class Products(ProductsTemplate):
 
   def render_checkout(self, course_name):
     self.content_panel.clear()
-    self.content_panel.add_component(Checkout(course_name, self.back))
+    self.content_panel.add_component(Checkout(id_name = course_name, back_button_callback=self.back))
     
   
     

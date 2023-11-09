@@ -15,7 +15,7 @@ class Checkout(CheckoutTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.update_form(id_name)
-
+    self.back_button_callback = back_button_callback
     # Any code you write here will run before the form opens.
 
   def update_form(self, id_name):
